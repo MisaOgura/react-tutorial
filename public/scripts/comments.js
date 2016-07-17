@@ -1,11 +1,12 @@
 var Comment = React.createClass({
   render: function() {
+    var md = new Remarkable();
     return (
       <div className="comments">
         <h2 className="commentAuthor">
           {this.props.author}
         </h2>
-        {this.props.children}
+        <h4> {md.render(this.props.children.toString())} </h4>
       </div>
     );
   }
